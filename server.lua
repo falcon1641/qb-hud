@@ -1,5 +1,4 @@
 local QBCore = exports['qb-core']:GetCoreObject()
-
 local ResetStress = false
 
 QBCore.Commands.Add('cash', 'Check Cash Balance', {}, false, function(source, args)
@@ -45,7 +44,6 @@ RegisterNetEvent('hud:server:GainStress', function(amount)
 	end
 end)
 
-
 RegisterNetEvent('hud:server:RelieveStress', function(amount)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
@@ -69,15 +67,6 @@ RegisterNetEvent('hud:server:RelieveStress', function(amount)
 	end
 end)
 
-QBCore.Functions.CreateCallback('hud:server:HasHarness', function(source, cb)
-    local Ply = QBCore.Functions.GetPlayer(source)
-    local Harness = Ply.Functions.GetItemByName("harness")
-    if Harness ~= nil then
-        cb(true)
-    else
-        cb(false)
-    end
-end)
 QBCore.Functions.CreateCallback('hud:server:getMenu', function(source, cb)
     cb(Config.Menu)
 end)
